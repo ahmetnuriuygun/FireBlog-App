@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
+import AppRouter from './router/AppRouter';
 
 const App = () => {
+  const [isLogged,setisLogged] = useState(false)
+
   return (
-    <div>App</div>
+    <div>
+      <AppRouter isLogged={isLogged}
+                 setisLogged={setisLogged} 
+
+                 />
+      
+    </div>
   )
 }
 

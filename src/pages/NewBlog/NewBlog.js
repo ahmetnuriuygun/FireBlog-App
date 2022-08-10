@@ -1,0 +1,48 @@
+import React from 'react'
+import { useState } from 'react'
+import imgblok from "../../assets/blok.png"
+import { AddUser } from '../../helpers/functions'
+import "./NewBlog.css"
+
+const NewBlog = () => {
+  const [title,setTitle] = useState()
+  const [url,setUrl] = useState()
+  const [content,setContent] = useState()
+
+  const handleNewBlog = (e) =>{
+    e.preventDefault()
+    AddUser(title,url,content)
+    console.log("asdasd")
+  }
+
+  return (
+    <div>
+    <div className='container-new-blog'>
+
+    
+      <div className="new-blog-img-div">
+      <img src={imgblok} alt="" width={"190px"} />
+      </div>
+      <div className='new-blog-text' >
+        <h1>New Blog</h1>
+      </div>
+
+      <form>
+        <div>
+          <input className='new-blog-form-box' type="text" placeholder='Title*' required onChange={(e)=>setTitle(e.target.value)} />
+        </div>
+
+        <div>
+          <input className='new-blog-form-box' type="url" name="link" id="link" placeholder='Image URL*' required onChange={(e)=>setUrl(e.target.value)}/>
+        </div>
+        <div>
+            <input className='new-blog-text-box' type="text" placeholder="Content*" onChange={(e)=>setContent(e.target.value)}/>
+        </div>
+        <button className='new-blog-button btn' type='submit' onClick={handleNewBlog}>SUBMIT</button>
+      </form>
+      </div>
+    </div>
+  )
+}
+
+export default NewBlog
