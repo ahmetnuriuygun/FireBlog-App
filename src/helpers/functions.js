@@ -1,6 +1,6 @@
 import {auth,firebase} from "./firebase";
 import {createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
-import { getDatabase, set, ref, push, onValue} from "firebase/database";
+import { getDatabase, set, ref, push, onValue, remove, update} from "firebase/database";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export const logIn = async (email,password,navigate) =>{
             email,
             password
         );
-        console.log(userCredential)
+        
         navigate("/")
     }catch(err){
         console.log(err)
@@ -92,3 +92,16 @@ export const useFetch = () =>{
     return{blogs}
 }
 
+export const DeleteBlog = (id) =>{
+  
+    const db =getDatabase(firebase)
+    remove(ref(db,"blog/"+id))
+    console.log("deleted")
+    
+}
+export const UpdateUser =(blog) =>{
+    const db = getDatabase(firebase)
+    const updates = {}
+    updates["blog/"+blog.id]=blog
+    return update(ref(db),updates)
+}
