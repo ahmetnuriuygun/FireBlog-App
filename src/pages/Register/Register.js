@@ -5,7 +5,7 @@ import img from "../../assets/blok.png"
 import googleimg  from "../../assets/google.png"
 import { createUser, signUpProvider } from '../../helpers/functions'
 import "./Register.css"
-const Register = ({isLogged,setisLogged}) => {
+const Register = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
 
    const[registerEmail,setRegisterEmail] = useState()
    const[registerPassword,setRegisterPassword] = useState()
@@ -15,13 +15,16 @@ const Register = ({isLogged,setisLogged}) => {
     e.preventDefault(e)
     createUser(registerEmail,registerPassword,navigate)
     setisLogged(true)
+    setCurrentUser(registerEmail)
+
   }
   
   const handleGoogleSignIn = (navigate) =>{
     signUpProvider(navigate)
+    setCurrentUser(registerEmail)
   }
   return (
-    <div>
+    <div className='register'>
        <div className='container'>
 
 <div className="imgdiv">

@@ -1,4 +1,3 @@
-import { sendSignInLinkToEmail } from 'firebase/auth'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +5,7 @@ import img from "../../assets/blok.png"
 import googleimg  from "../../assets/google.png"
 import { logIn, signUpProvider } from '../../helpers/functions'
 import "./Login.css"
-const Login = ({isLogged,setisLogged}) => {
+const Login = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
 
   const [email,setEmail] = useState()
   const [password,setPassword] = useState()
@@ -16,14 +15,19 @@ const Login = ({isLogged,setisLogged}) => {
     e.preventDefault(e)
     logIn(email,password,navigate)
     setisLogged(true)
+    setCurrentUser(email)
   }
 
   const handleGoogleSignIn = (navigate) =>{
     signUpProvider(navigate)
+    setCurrentUser(email)
   }
 
   return (
-    <div >
+    
+
+    
+    <div className='login' >
 
     <div className='container'>
 

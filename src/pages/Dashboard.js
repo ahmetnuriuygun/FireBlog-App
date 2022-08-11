@@ -1,15 +1,19 @@
 import React from 'react'
-import BlogCard from '../components/BlogCard'
+import BlogCard from "../components/BlogCard/BlogCard"
 
-const Dashboard = () => {
+const Dashboard = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
+  
   return (
     <div>
-      <header className='text-center text-primary h1 dashboard mt-3'>
+      <header className='text-center  h1 dashboard mt-3'>
         DASHBOARD
       </header>
 
       <div>
-        <BlogCard/>
+        <BlogCard isLogged={isLogged}
+                setisLogged={setisLogged}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}  />
       </div>
     </div>
   )

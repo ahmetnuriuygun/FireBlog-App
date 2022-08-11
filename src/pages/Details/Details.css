@@ -1,0 +1,12 @@
+.header{
+    color: #046582;
+    text-align: center;
+}
+.details-info{
+    height: 400px;
+    width: 800px !important;
+    
+}
+.details-info .card-body{
+    background-color: #E7E6F5;
+}

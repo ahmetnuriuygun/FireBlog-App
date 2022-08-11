@@ -1,6 +1,5 @@
 import {auth,firebase} from "./firebase";
 import {createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
-import { Navigate } from "react-router-dom";
 import { getDatabase, set, ref, push, onValue} from "firebase/database";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -22,6 +21,7 @@ export const createUser = async(registerEmail,registerPassword,navigate) =>{
     }
     
 }
+
 
 export const logIn = async (email,password,navigate) =>{
     try{
@@ -60,7 +60,7 @@ export const signUpProvider = (navigate) =>{
     })
 }
 
-export const AddUser = (title,url,content) =>{
+export const AddUser = (title,url,content,navigate,currentUser) =>{
     const db = getDatabase(firebase)
     const userRef = ref(db,"blog/");
     const newUserRef = push(userRef);
@@ -68,7 +68,10 @@ export const AddUser = (title,url,content) =>{
         title:title,
         url:url,
         content:content,
+        user:currentUser,
     });
+
+    navigate("/")
 }
 
 export const useFetch = () =>{
@@ -88,3 +91,4 @@ export const useFetch = () =>{
     },[])
     return{blogs}
 }
+
