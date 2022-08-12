@@ -11,6 +11,7 @@ const App = () => {
                  setisLogged={setisLogged} 
                  currentUser = {currentUser}
                  setCurrentUser = {setCurrentUser}
+                 
                  />
       
     </div>

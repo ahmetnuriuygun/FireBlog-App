@@ -1,6 +1,6 @@
 .container-new-blog{
-    width: 500px;
-    height: 450px;
+    width: 700px;
+    height: 50px;
     margin: 50px auto;
     justify-content: center;
     align-items: center;
@@ -9,35 +9,43 @@
 .new-blog-img-div{
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 60%;
     margin: 40px auto;
     background-color: #046582;
 }
 .new-blog-img-div img{
-    margin:15px auto
+    margin:35px auto
 }
 .new-blog-text h1{
     color: #046582;
-    font-weight: bolder;
+    font-weight:normal;
     letter-spacing: 1px;
-    font-size: xx-large;
+    font-size: 45px
 }
 .new-blog-form-box{
-    width: 300px;
-    height: 50px;
-    border: 1px solid blue;
+    width: 600px;
+    height: 75px;
+    border: 1px solid black;
     margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }
 .new-blog-text-box{
-    width: 300px;
-    height: 150px;
-    border: 1px solid blue;
+    width: 600px;
+    height: 450px;
+    border: 1px solid black;
     margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }
 .new-blog-button{
     background-color:#046582 ;
-    width: 300px;
+    width: 600px;
+    height: 50px;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700; 
+    font-size: 20px;
 }

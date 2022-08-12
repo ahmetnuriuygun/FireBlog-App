@@ -1,0 +1,21 @@
+.navbar{
+    height: 100px;
+    background-color:#046582
+}
+.navbar h3 {
+    color: #F5DEB3;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+    text-decoration: none;
+    
+} 
+.navbar  .icon{
+    font-size: 40px;
+}
+.drop-link{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 25px;
+}
+

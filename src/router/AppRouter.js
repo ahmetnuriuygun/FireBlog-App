@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar/Navbar'
 import Dashboard from "../pages/Dashboard"
 import Profile from "../pages/Profile"
 import NewBlog from "../pages/NewBlog/NewBlog"
@@ -28,7 +28,8 @@ const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
                 isLogged={isLogged}
                 setisLogged={setisLogged}
                 currentUser={currentUser}
-                setCurrentUser={setCurrentUser}   
+                setCurrentUser={setCurrentUser} 
+               
             /> }/>     
 
             <Route path="/register" element={<Register

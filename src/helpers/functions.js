@@ -8,14 +8,18 @@ import { useState } from "react";
 
 
 export const createUser = async(registerEmail,registerPassword,navigate) =>{
+
     try{
         let userCredential = await createUserWithEmailAndPassword(
             auth,
             registerEmail,
             registerPassword
         )
+
+
         console.log(userCredential)
         navigate("/")
+        
     }catch(err){
         console.log(err)
     }
@@ -24,6 +28,7 @@ export const createUser = async(registerEmail,registerPassword,navigate) =>{
 
 
 export const logIn = async (email,password,navigate) =>{
+    
     try{
         let userCredential = await signInWithEmailAndPassword(
             auth,
@@ -32,6 +37,8 @@ export const logIn = async (email,password,navigate) =>{
         );
         
         navigate("/")
+        
+        
     }catch(err){
         console.log(err)
     }
@@ -76,6 +83,7 @@ export const AddUser = (title,url,content,navigate,currentUser) =>{
 
 export const useFetch = () =>{
     const [blogs,setBlogs] = useState()
+    const [isLoading,setIsLoading] = useState()
     useEffect(()=>{
         const db = getDatabase(firebase);
         const userRef = ref(db,"blog/")
@@ -86,10 +94,11 @@ export const useFetch = () =>{
             for (let id in data){
                 userArray.push({id,...data[id]})
                 setBlogs(userArray)
+                setIsLoading(false)
             }
         })
     },[])
-    return{blogs}
+    return{blogs,isLoading}
 }
 
 export const DeleteBlog = (id,navigate) =>{
