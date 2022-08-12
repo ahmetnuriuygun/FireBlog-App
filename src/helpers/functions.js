@@ -92,16 +92,24 @@ export const useFetch = () =>{
     return{blogs}
 }
 
-export const DeleteBlog = (id) =>{
-  
-    const db =getDatabase(firebase)
-    remove(ref(db,"blog/"+id))
-    console.log("deleted")
+export const DeleteBlog = (id,navigate) =>{
+    
+    const db =getDatabase(firebase);
+    remove(ref(db,"blog/"+id));
+    navigate("/");
     
 }
-export const UpdateUser =(blog) =>{
+
+export const UpdateUser =(id,updateTitle,updateUrl,updateContent,user) =>{
     const db = getDatabase(firebase)
+    const updatesData = {
+        title:updateTitle,
+        url:updateUrl,
+        content:updateContent,
+        user:user
+    }
     const updates = {}
-    updates["blog/"+blog.id]=blog
+    updates["blog/"+id]=updatesData
     return update(ref(db),updates)
+    
 }

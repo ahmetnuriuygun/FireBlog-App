@@ -1,28 +1,34 @@
 import React from 'react'
-import { useParams} from 'react-router-dom'
-import { DeleteBlog, UpdateUser, useFetch} from '../../helpers/functions';
+import { useNavigate, useParams} from 'react-router-dom'
+import { DeleteBlog,  useFetch} from '../../helpers/functions';
 import { Card, Col } from 'react-bootstrap'
 import "./Details.css"
+import Modal from '../../components/Modal/Modal';
+import { useState } from 'react';
 
 
 
-const Details = ({currentUser,setCurrentUser}) => {
+const Details = ({currentUser,setCurrentUser,EditUser}) => {
   
   const {id} = useParams();
   
-  
   const {blogs} = useFetch();
 
+  const navigate = useNavigate();
   
-
   const handleDelete = (id) =>{
-    DeleteBlog(id)
-  }
-  const handleUpdate = (id) =>{
-    UpdateUser(id)
+    DeleteBlog(id,navigate);
+}
+  const handleUpdate = (filteredBlog) => {
+    setModalOpen(true);
+    setInfoDetail(filteredBlog)
+}
 
-  }
-  
+const [infoDetail,setInfoDetail] = useState()
+const [modalOpen, setModalOpen] = useState(false);
+
+// console.log(modalOpen)
+
 
   return(
     <div>
@@ -50,10 +56,17 @@ const Details = ({currentUser,setCurrentUser}) => {
                 {filteredBlog.user === currentUser
                 ? (
                   <>
-                  <div><button onClick={handleUpdate(filteredBlog.id)}>UPDATE</button></div>
-                  <div><button onClick={handleDelete(filteredBlog.id)}>Delete</button></div>
+                  <div><button onClick={()=>{handleUpdate(filteredBlog)}}>UPDATE</button>
+                </div>
+                {modalOpen && <Modal setOpenModal={setModalOpen}
+                                    setInfoDetail={setInfoDetail}
+                                    infoDetail={infoDetail}
+                 />}  
+                  <br />
+                  <div><button onClick={()=>{handleDelete(filteredBlog.id)}}
+                  >Delete</button></div>
                   </>
-                 
+
                 ) : (
                   <>
 

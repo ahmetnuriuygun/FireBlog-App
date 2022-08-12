@@ -9,7 +9,10 @@ import Register from "../pages/Register/Register"
 import Details from '../pages/Details/Details'
 import PrivateRouter from './PrivateRouter'
 
+
 const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
+   
+   
   return (
     <div>
         <BrowserRouter>
@@ -42,14 +45,17 @@ const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
                 setisLogged={setisLogged}
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}    
+                
                 />}/>
             <Route path="/details/:id" element={<PrivateRouter 
                 isLogged={isLogged}
                 setisLogged={setisLogged} />}>
             <Route path="/details/:id" element={<Details 
                 currentUser={currentUser}
-                setCurrentUser={setCurrentUser} />}/>    
+                setCurrentUser={setCurrentUser}
+                />}/>    
             </Route>    
+           
         </Routes>
         </BrowserRouter>
     </div>

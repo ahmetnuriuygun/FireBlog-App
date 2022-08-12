@@ -1,22 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 import imgblok from "../../assets/blok.png"
 import { AddUser } from '../../helpers/functions'
 import "./BlogForm.css"
 
-const BlogForm = ({currentUser,setCurrentUser}) => {
+const BlogForm = ({currentUser,setCurrentUser,info,setInfo}) => {
   const [title,setTitle] = useState()
   const [url,setUrl] = useState()
   const [content,setContent] = useState()
 
+  
   const navigate = useNavigate()
 
   const handleNewBlog = (e) =>{
     e.preventDefault()
     AddUser(title,url,content,navigate,currentUser)
-    
+  
 }
+
   return (
     <div>
     <div className='container-new-blog'>
