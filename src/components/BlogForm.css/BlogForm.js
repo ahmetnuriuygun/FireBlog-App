@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import imgblok from "../../assets/blok.png"
-import { AddUser } from '../../helpers/functions'
+import { AddBlog } from '../../helpers/functions'
+import { toastSuccessNotify } from '../../helpers/ToastNotify'
 import "./BlogForm.css"
 
 const BlogForm = ({currentUser,setCurrentUser,info,setInfo}) => {
@@ -15,7 +16,11 @@ const BlogForm = ({currentUser,setCurrentUser,info,setInfo}) => {
 
   const handleNewBlog = (e) =>{
     e.preventDefault()
-    AddUser(title,url,content,navigate,currentUser)
+    AddBlog(title,url,content,navigate,currentUser)
+  
+
+  
+    
 }
 
   return (

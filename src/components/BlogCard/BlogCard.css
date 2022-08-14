@@ -2,3 +2,40 @@
     color: #046582;
 }
 
+.main-card{
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    
+
+}
+.card-group{
+    border: 1px solid black;
+    width: 390px;
+    height: 650px;
+    margin: 20px;
+    border-radius: 10px;
+}
+.card-group img{
+    width: 390px;
+    height: 300px
+}
+.card-title{
+    font-family: 'Girassol', cursive;
+    font-size: 35px;
+    color: #046582;
+}
+.card-text{
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
+    margin-top: 15px;
+    font-size: 25px;
+}
+.card-body{
+    width: 390px;
+    height: 340px;
+    background-color: #E7E6F5;
+    margin-top: 10px;
+}

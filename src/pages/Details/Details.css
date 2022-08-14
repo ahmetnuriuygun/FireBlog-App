@@ -1,12 +1,97 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header{
     color: #046582;
     text-align: center;
 }
 .details-info{
-    height: 400px;
-    width: 800px !important;
+    height: 55vw;
+    width: 75vw;
+    min-width: 250px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin: 0 ;
+    margin-top: 35px;
+    border: 1px solid black ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.details-info img{
+    width: 350px;
+    margin-top: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
     
 }
 .details-info .card-body{
+    width: 75vw;
     background-color: #E7E6F5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+      
+    
+}
+
+.details-info .card-body .title{
+    font-family: 'Girassol', cursive;
+    font-size: 35px;
+
+}
+.details-info .card-body .text{
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.details-info .card-body .user{
+    font-family: Arial, Helvetica, sans-serif;
+    display:inline;
+    text-align: left;
+    font-size: 25px;
+    
+}
+.details-info .card-body .icon{
+    margin-right: 10px;
+    font-size: 25px;
+    
+}
+
+.delete{
+    background-color: red;
+    width: 150px;
+    height: 35px;
+    margin-right: 50px;
+    border: none;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.update{
+    background-color: orange;
+    width: 150px;
+    height: 35px;
+    border: none;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }

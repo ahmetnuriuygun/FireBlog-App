@@ -1,16 +1,19 @@
 .modalBackground {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(200, 200, 200);
+    width: 35vw;
+    height: 50vh;
+    background-color:gray;
     position: fixed;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    left: 25%;
+    top: 25%;
   }
   
   .modalContainer {
-    width: 500px;
-    height: 500px;
+    width: 35vw;
+    height: 50vh;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

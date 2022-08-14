@@ -5,6 +5,7 @@ const PrivateRouter = ({isLogged,setisLogged}) => {
 
   return (
     isLogged ? <Outlet/> : <Navigate to="/login" replace/>
+    
   )
 }
 

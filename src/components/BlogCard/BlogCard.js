@@ -1,9 +1,11 @@
 import React from 'react'
-import { Card, CardGroup, Col, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useFetch } from '../../helpers/functions'
 import loadingImg from "../../assets/spinner.gif"
 import "./BlogCard.css"
+import {  toastWarnNotify } from '../../helpers/ToastNotify'
+import {FaUserCircle} from "react-icons/fa"
+
 
 const BlogCard = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
 
@@ -11,33 +13,44 @@ const BlogCard = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
   console.log(isLoading) 
 
   const navigate = useNavigate()
+  console.log(blogs)
 
-  const handleCard = (id) =>{
-    isLogged ? (
-      alert("Please log in to see details")
-    ) : (
-      navigate("/details/" + id)
-    )
-}
+
+    const handleCard = (id) =>{
+        !isLogged && toastWarnNotify("Please log in to see details");
+        navigate("/details/" + id);
+        
+    }
+
+   
 
   return (
-    <div>
+    <div className='container'>  
+    <div className='row'>
+
+    
+    <div className='main-card '>
     {isLoading ? (
       <img src={loadingImg} alt="" />
     ):(
       <>
          {blogs?.map((item)=>{
       return(
-        <div class="card-group">
-  <div class="cards">
-    <img src={item.url} class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">{item.title}</h5>
-      <p class="card-text">{item.content}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+      
+        <div className="card-group col-lg-4 col-md-3 col-sm-2 col-xsm-1 ">
+  <div className="cards "  onClick={()=>handleCard(item.id)}>
+    <img src={item.url} className="card-img-top" />
+    <div className="card-body">
+      <h5 className="card-title">{item.title}</h5>
+      
+      <p className="card-text">{item.content.substring(0,150)}</p>
+      <p className="card-text"> <FaUserCircle/> {item.user} </p>
     </div>
   </div>
   </div>
+      
+        
    )
         {/* <CardGroup className='cards'>
 <Card style={{ width: "18rem" }} onClick={()=>handleCard(item.id)} >
@@ -54,10 +67,11 @@ const BlogCard = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
            
      
     })}
-      </>
+    </>  
     )}
    
-        
+    </div>  
+    </div>
     </div>
   )
 }

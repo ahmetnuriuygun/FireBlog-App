@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../helpers/functions";
-import "./Modal.css";
+import "./ModalUpdate.css";
 
-function Modal({ setOpenModal,setInfoDetail,infoDetail }) {
+const ModalUpdate = ({ setOpenModal,setInfoDetail,infoDetail }) => {
   console.log(infoDetail)
   const [updateTitle,setUpdateTitle] = useState()
   const [updateUrl,setUpdateUrl] = useState()
@@ -33,7 +33,7 @@ function Modal({ setOpenModal,setInfoDetail,infoDetail }) {
           <h1>Are You Sure You Want to Update?</h1>
         </div>
         <div className="body">
-        <form>
+      <form>
         <div>
           <input className='new-blog-form-box' type="text" value={updateTitle? updateTitle : setUpdateTitle(infoDetail.title)} placeholder='Title*' required onChange={(e)=>setUpdateTitle(e.target.value)} />
         </div>
@@ -42,8 +42,7 @@ function Modal({ setOpenModal,setInfoDetail,infoDetail }) {
           <input className='new-blog-form-box' type="url" value={updateUrl? updateUrl : setUpdateUrl(infoDetail.url)}  name="link" id="link" placeholder='Image URL*' required onChange={(e)=>setUpdateUrl(e.target.value)} />
         </div>
         <div>
-        <input className='new-blog-form-box' type="text" value={updateContent? updateContent : setUpdateContent(infoDetail.content)}  name="content" id="content" placeholder='Content*' required onChange={(e)=>setUpdateContent(e.target.value)} />
-
+          <input className='new-blog-form-box' type="text" value={updateContent? updateContent : setUpdateContent(infoDetail.content)}  name="content" id="content" placeholder='Content*' required onChange={(e)=>setUpdateContent(e.target.value)} />
         </div>
       </form>
         </div>
@@ -63,4 +62,4 @@ function Modal({ setOpenModal,setInfoDetail,infoDetail }) {
   );
 }
 
-export default Modal;
+export default ModalUpdate;

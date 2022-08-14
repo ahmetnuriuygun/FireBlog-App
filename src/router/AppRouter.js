@@ -2,12 +2,13 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import Dashboard from "../pages/Dashboard"
-import Profile from "../pages/Profile"
+import Profile from "../pages/Profile/Profile"
 import NewBlog from "../pages/NewBlog/NewBlog"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
 import Details from '../pages/Details/Details'
 import PrivateRouter from './PrivateRouter'
+import NotFound from '../pages/NotFound'
 
 
 const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
@@ -39,7 +40,12 @@ const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
                 setCurrentUser={setCurrentUser}   
             /> }/>   
 
-            <Route path="/profile" element={<Profile/>}/>   
+            <Route path="/profile" element={<Profile
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                isLogged={isLogged}
+                setisLogged={setisLogged} 
+            />}/>   
 
             <Route path="/new-blog" element={<NewBlog 
                 isLogged={isLogged}
@@ -56,7 +62,8 @@ const AppRouter = ({isLogged,setisLogged,currentUser,setCurrentUser}) => {
                 setCurrentUser={setCurrentUser}
                 />}/>    
             </Route>    
-           
+            
+            <Route path="*" element={<NotFound/>} />
         </Routes>
         </BrowserRouter>
     </div>
